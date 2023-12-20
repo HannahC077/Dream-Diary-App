@@ -7,14 +7,12 @@ class CustomTextFormField extends StatelessWidget {
   final TextInputType textInputType;
   final TextEditingController controller;
 
-  const CustomTextFormField({
-    super.key,
-    required this.labelText,
-    required this.hintText,
-    required this.textInputType,
-    required this.controller
-  })
-  : assert(controller != null);
+  const CustomTextFormField(
+      {super.key,
+      required this.labelText,
+      required this.hintText,
+      required this.textInputType,
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {

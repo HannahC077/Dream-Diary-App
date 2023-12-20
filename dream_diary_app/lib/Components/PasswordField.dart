@@ -14,8 +14,7 @@ class PasswordField extends StatelessWidget {
       required this.hintText,
       required this.obscureText,
       required this.onTap,
-      required this.controller})
-      : assert(controller != null);
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {
