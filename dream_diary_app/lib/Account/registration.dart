@@ -36,23 +36,26 @@ class _RegistrationState extends State<Registration> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Container(
-              height: 400,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/regbackground.png'),
-                      fit: BoxFit.fill)),
-              child: Positioned(
-                child: FadeIn(
-                  1,
-                  Container(
-                    margin: const EdgeInsets.only(top: 15),
-                    child: Center(
-                      child: Text("Create Account",
-                          style: GoogleFonts.comfortaa(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold)),
+            FadeIn(
+              1,
+              Container(
+                height: 400,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/regbackground.png'),
+                        fit: BoxFit.fill)),
+                child: Positioned(
+                  child: FadeIn(
+                    1,
+                    Container(
+                      margin: const EdgeInsets.only(top: 15),
+                      child: Center(
+                        child: Text("Create Account",
+                            style: GoogleFonts.comfortaa(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold)),
+                      ),
                     ),
                   ),
                 ),

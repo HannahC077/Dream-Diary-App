@@ -25,36 +25,39 @@ class _ProfileState extends State<Profile> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Container(
-              height: 350,
-              width: 415,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/profile_bg.png'),
-                  fit: BoxFit.fill,
+            FadeIn(
+              1,
+              Container(
+                height: 350,
+                width: 415,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/profile_bg.png'),
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              child: FadeIn(
-                1,
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 50,
-                      backgroundImage:
-                          AssetImage('assets/images/default_prof.jpg'),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      username,
-                      style: GoogleFonts.comfortaa(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                child: FadeIn(
+                  1,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 50,
+                        backgroundImage:
+                            AssetImage('assets/images/default_prof.jpg'),
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 10),
+                      Text(
+                        username,
+                        style: GoogleFonts.comfortaa(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -62,75 +65,79 @@ class _ProfileState extends State<Profile> {
               padding: const EdgeInsets.all(30.0),
               child: FadeIn(
                 1,
-                Column(
-                  children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color.fromRGBO(94, 84, 142, 0.2),
-                            blurRadius: 20.0,
-                            offset: Offset(0, 10),
-                          ),
-                        ],
+                FadeIn(
+                  1,
+                  Column(
+                    children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color.fromRGBO(94, 84, 142, 0.2),
+                              blurRadius: 20.0,
+                              offset: Offset(0, 10),
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              height: 60,
+                              padding: const EdgeInsets.all(8.0),
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                    color: Colors.grey[100] ?? Colors.grey,
+                                  ),
+                                ),
+                              ),
+                              child: TileButton(
+                                text: "Edit Profile",
+                                icon: Icons.account_circle_outlined,
+                                onPressed: editProfile,
+                              ),
+                            ),
+                            Container(
+                              height: 60,
+                              padding: const EdgeInsets.all(8.0),
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                    color: Colors.grey[100] ?? Colors.grey,
+                                  ),
+                                ),
+                              ),
+                              child: TileButton(
+                                text: "Change Password",
+                                icon: Icons.lock_outline,
+                                onPressed: editPassword,
+                              ),
+                            ),
+                            Container(
+                              height: 60,
+                              padding: const EdgeInsets.all(8.0),
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                    color: Colors.grey[100] ?? Colors.grey,
+                                  ),
+                                ),
+                              ),
+                              child: TileButton(
+                                text: "Log Out",
+                                icon: Icons.logout_outlined,
+                                onPressed: () =>
+                                    _showLogoutConfirmation(context),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            height: 60,
-                            padding: const EdgeInsets.all(8.0),
-                            decoration: BoxDecoration(
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: Colors.grey[100] ?? Colors.grey,
-                                ),
-                              ),
-                            ),
-                            child: TileButton(
-                              text: "Edit Profile",
-                              icon: Icons.account_circle_outlined,
-                              onPressed: editProfile,
-                            ),
-                          ),
-                          Container(
-                            height: 60,
-                            padding: const EdgeInsets.all(8.0),
-                            decoration: BoxDecoration(
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: Colors.grey[100] ?? Colors.grey,
-                                ),
-                              ),
-                            ),
-                            child: TileButton(
-                              text: "Change Password",
-                              icon: Icons.lock_outline,
-                              onPressed: editPassword,
-                            ),
-                          ),
-                          Container(
-                            height: 60,
-                            padding: const EdgeInsets.all(8.0),
-                            decoration: BoxDecoration(
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: Colors.grey[100] ?? Colors.grey,
-                                ),
-                              ),
-                            ),
-                            child: TileButton(
-                              text: "Log Out",
-                              icon: Icons.logout_outlined,
-                              onPressed: () => _showLogoutConfirmation(context),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -152,33 +159,37 @@ class _ProfileState extends State<Profile> {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Log Out',
-              style: GoogleFonts.comfortaa(
+        return FadeIn(
+          1,
+          AlertDialog(
+            title: Text('Log Out',
+                style: GoogleFonts.comfortaa(
+                    color: Colors.grey.shade700,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold)),
+            content: Text('Are you sure you want to log out?',
+                style: GoogleFonts.comfortaa(
                   color: Colors.grey.shade700,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold)),
-          content: Text('Are you sure you want to log out?',
-              style: GoogleFonts.comfortaa(
-                color: Colors.grey.shade700,
-              )),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
-              },
-              child: Text('Cancel',
-                  style: GoogleFonts.comfortaa(fontWeight: FontWeight.bold)),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
-                Navigator.pushReplacementNamed(context, LoginScreen.routeName);
-              },
-              child: Text('Log Out',
-                  style: GoogleFonts.comfortaa(fontWeight: FontWeight.bold)),
-            ),
-          ],
+                )),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                },
+                child: Text('Cancel',
+                    style: GoogleFonts.comfortaa(fontWeight: FontWeight.bold)),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                  Navigator.pushReplacementNamed(
+                      context, LoginScreen.routeName);
+                },
+                child: Text('Log Out',
+                    style: GoogleFonts.comfortaa(fontWeight: FontWeight.bold)),
+              ),
+            ],
+          ),
         );
       },
     );

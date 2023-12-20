@@ -3,7 +3,7 @@ import 'package:dream_diary_app/Components/CustomTextFormField.dart';
 import 'package:dream_diary_app/Components/PasswordField.dart';
 import 'package:dream_diary_app/Components/Primary%20Button.dart';
 import 'package:dream_diary_app/Components/Secondary%20Button.dart';
-import 'package:dream_diary_app/Settings/profile.dart';
+import 'package:dream_diary_app/Components/NavigationBar.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_diary_app/routes.dart';
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
@@ -188,7 +188,7 @@ class _LoginScreenState extends State<LoginScreen> {
     } else {
       // Perform login logic here
       // Navigator.pushReplacementNamed(context, Dashboard.routeName);
-      Navigator.pushNamed(context, Profile.routeName);
+      Navigator.pushNamed(context, NavigationBarApp.routeName);
     }
   }
 
