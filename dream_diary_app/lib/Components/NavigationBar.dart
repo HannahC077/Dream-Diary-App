@@ -1,4 +1,3 @@
-import 'package:dream_diary_app/Account/registration.dart';
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
 import 'package:dream_diary_app/Dashboard/dashboard.dart';
 import 'package:dream_diary_app/Dashboard/search.dart';
@@ -19,7 +18,6 @@ class _NavigationBarAppState extends State<NavigationBarApp> {
 
   final screens = [
     Dashboard(),
-    Registration(), //temp
     SearchPage(),
     Profile(),
   ];
@@ -42,38 +40,29 @@ class _NavigationBarAppState extends State<NavigationBarApp> {
           items: const [
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.cloud,
-                color: Color.fromRGBO(115, 104, 169, 1),
+                Icons.cloud_queue_outlined,
+                color: Color.fromRGBO(182, 162, 209, 1),
               ),
-              activeIcon: Icon(Icons.cloud_queue_outlined,
-                  color: Color.fromRGBO(182, 162, 209, 1)),
+              activeIcon:
+                  Icon(Icons.cloud, color: Color.fromRGBO(115, 104, 169, 1)),
               label: "Dashboard",
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.calendar_today_rounded,
-                color: Color.fromRGBO(115, 104, 169, 1),
-              ),
-              activeIcon: Icon(Icons.calendar_month_rounded,
-                  color: Color.fromRGBO(182, 162, 209, 1)),
-              label: "Calendar",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
                 Icons.search,
-                color: Color.fromRGBO(115, 104, 169, 1),
+                color: Color.fromRGBO(182, 162, 209, 1),
               ),
               activeIcon: Icon(Icons.saved_search,
-                  color: Color.fromRGBO(182, 162, 209, 1)),
+                  color: Color.fromRGBO(115, 104, 169, 1)),
               label: "Search",
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.settings,
-                color: Color.fromRGBO(115, 104, 169, 1),
+                color: Color.fromRGBO(182, 162, 209, 1),
               ),
               activeIcon: Icon(Icons.settings_applications,
-                  color: Color.fromRGBO(182, 162, 209, 1)),
+                  color: Color.fromRGBO(115, 104, 169, 1)),
               label: "Settings",
             )
           ],

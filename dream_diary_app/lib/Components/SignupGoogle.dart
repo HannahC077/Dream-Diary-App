@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PrimaryButton extends StatelessWidget {
+class SignupGoogle extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  const PrimaryButton({Key? key, required this.text, required this.onPressed})
+  const SignupGoogle({Key? key, required this.text, required this.onPressed})
       : super(key: key);
 
   @override
@@ -15,31 +15,24 @@ class PrimaryButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.all(0),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(40),
+          side: BorderSide(color: Colors.grey.shade100, width: 1.5),
         ),
+        elevation: 2,
       ),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+        width: 280,
+        padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          gradient: LinearGradient(
-            colors: [
-              Color.fromRGBO(159, 134, 192, 1),
-              Color.fromRGBO(159, 134, 192, .6)
-            ],
-            stops: [0.0, 1.0],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-          ),
-        ),
+            borderRadius: BorderRadius.circular(40), color: Colors.white),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               text,
               style: GoogleFonts.comfortaa(
-                color: Colors.white,
-                fontSize: 14,
+                color: Colors.grey.shade600,
+                fontSize: 12,
                 fontWeight: FontWeight.w600,
               ),
             ),

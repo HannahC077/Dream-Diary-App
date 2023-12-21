@@ -4,6 +4,7 @@ import 'package:dream_diary_app/Components/PasswordField.dart';
 import 'package:dream_diary_app/Components/Primary%20Button.dart';
 import 'package:dream_diary_app/Components/Secondary%20Button.dart';
 import 'package:dream_diary_app/Components/NavigationBar.dart';
+import 'package:dream_diary_app/Components/SignupGoogle.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_diary_app/routes.dart';
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
@@ -146,7 +147,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     PrimaryButton(text: "Login", onPressed: login),
                     const SizedBox(
-                      height: 30,
+                      height: 10,
+                    ),
+                    Container(
+                      child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 5),
+                          child: Divider(
+                            color: Colors.grey.shade300,
+                            thickness: 2,
+                            indent: 6,
+                            endIndent: 6,
+                          )),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    SignupGoogle(
+                        text: "Sign in with Google", onPressed: nullFn),
+                    const SizedBox(
+                      height: 6,
                     ),
                     SecondaryButton(
                         text: "Register New Account", onPressed: register),
@@ -187,8 +206,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
     } else {
       // Perform login logic here
-      // Navigator.pushReplacementNamed(context, Dashboard.routeName);
-      Navigator.pushNamed(context, NavigationBarApp.routeName);
+      Navigator.pushReplacementNamed(context, NavigationBarApp.routeName);
     }
   }
 
