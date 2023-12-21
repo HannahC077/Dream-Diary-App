@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
 
-class newEntryFloatingButton extends StatefulWidget {
+class NewEntryFloatingButton extends StatefulWidget {
   final VoidCallback onPressed;
 
-  const newEntryFloatingButton({super.key, required this.onPressed});
+  const NewEntryFloatingButton({Key? key, required this.onPressed})
+      : super(key: key);
 
   @override
-  State<newEntryFloatingButton> createState() => _newEntryFloatingButtonState();
+  State<NewEntryFloatingButton> createState() => _NewEntryFloatingButtonState();
 }
 
-class _newEntryFloatingButtonState extends State<newEntryFloatingButton> {
+class _NewEntryFloatingButtonState extends State<NewEntryFloatingButton> {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: nullFn,
+      onPressed: widget.onPressed, // Use widget.onPressed here
       foregroundColor: Colors.white,
-      backgroundColor: Color.fromRGBO(159, 134, 192, 1),
-      shape: CircleBorder(),
-      child: Icon(Icons.add, color: Colors.white),
+      backgroundColor: const Color.fromRGBO(159, 134, 192, 1),
+      shape: const CircleBorder(),
+      child: const Icon(Icons.add, color: Colors.white),
     );
   }
-
-  void nullFn() {}
 }

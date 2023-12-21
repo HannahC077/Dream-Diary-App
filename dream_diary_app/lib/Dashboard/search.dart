@@ -34,7 +34,7 @@ class _SearchPageState extends State<SearchPage> {
                 child: Stack(
                   children: [
                     Positioned(
-                      top: 55,
+                      top: 45,
                       width: 380,
                       child: Padding(
                         padding: EdgeInsets.all(8),

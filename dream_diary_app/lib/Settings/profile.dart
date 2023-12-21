@@ -163,6 +163,7 @@ class _ProfileState extends State<Profile> {
         return FadeIn(
           1,
           AlertDialog(
+            backgroundColor: Colors.white,
             title: Text('Log Out',
                 style: GoogleFonts.comfortaa(
                     color: Colors.grey.shade700,

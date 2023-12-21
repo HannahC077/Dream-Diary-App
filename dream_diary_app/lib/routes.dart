@@ -1,3 +1,4 @@
+import 'package:dream_diary_app/Dashboard/Dream%20Entry/newEntry.dart';
 import 'package:dream_diary_app/Dashboard/dashboard.dart';
 import 'package:dream_diary_app/Dashboard/search.dart';
 import 'package:dream_diary_app/Settings/editPassword.dart';
@@ -18,4 +19,5 @@ final Map<String, WidgetBuilder> routes = {
   Dashboard.routeName: (BuildContext context) => const Dashboard(),
   NavigationBarApp.routeName: (BuildContext context) =>
       const NavigationBarApp(),
+  NewEntry.routeName: (BuildContext context) => const NewEntry(),
 };

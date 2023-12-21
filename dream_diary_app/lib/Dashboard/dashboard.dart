@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
 import 'package:dream_diary_app/Components/CalendarSelect.dart';
-import 'package:dream_diary_app/Components/newEntryFloatingButton.dart';
+import 'package:dream_diary_app/Components/NewEntryFloatingButton.dart';
+import 'package:dream_diary_app/Dashboard/Dream%20Entry/newEntry.dart';
 import 'package:dream_diary_app/Models/quote.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -186,7 +187,8 @@ class _DashboardState extends State<Dashboard>
                         const SizedBox(
                           height: 20,
                         ),
-                        const SingleChoice(), //filter
+                        //filter
+                        const SingleChoice(),
                       ],
                     );
                   },
@@ -196,16 +198,39 @@ class _DashboardState extends State<Dashboard>
           ],
         ),
       ),
-      floatingActionButton: newEntryFloatingButton(
+      floatingActionButton: NewEntryFloatingButton(
         //New Entry Button
-        onPressed: nullFn,
+        onPressed: newEntryPost,
       ),
     );
   }
 
-  void nullFn() {
-    //asdsd
+  void newEntryPost() {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return NewEntry();
+        },
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = 0.0;
+          const end = 1.0;
+          const curve = Curves.easeInOut;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+          var fadeAnimation = animation.drive(tween);
+
+          return FadeTransition(
+            opacity: fadeAnimation,
+            child: child,
+          );
+        },
+      ),
+    );
   }
+
   Future<void> getQuote() async {
     try {
       Response response =

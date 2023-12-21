@@ -46,55 +46,58 @@ class _LoginScreenState extends State<LoginScreen> {
         body: SingleChildScrollView(
             child: Column(
           children: <Widget>[
-            Container(
-              height: 400,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/background.png'),
-                      fit: BoxFit.fill)),
-              child: FadeIn(
-                1,
-                Stack(
-                  children: <Widget>[
-                    Positioned(
-                      left: 30,
-                      width: 80,
-                      height: 150,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                            image: DecorationImage(
-                                image:
-                                    AssetImage('assets/images/light-1.png'))),
+            FadeIn(
+              1,
+              Container(
+                height: 400,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/background.png'),
+                        fit: BoxFit.fill)),
+                child: FadeIn(
+                  1,
+                  Stack(
+                    children: <Widget>[
+                      Positioned(
+                        left: 30,
+                        width: 80,
+                        height: 150,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage('assets/images/light-1.png'))),
+                        ),
                       ),
-                    ),
-                    Positioned(
-                      left: 120,
-                      width: 80,
-                      height: 120,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                            image: DecorationImage(
-                                image:
-                                    AssetImage('assets/images/light-2.png'))),
+                      Positioned(
+                        left: 120,
+                        width: 80,
+                        height: 120,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage('assets/images/light-2.png'))),
+                        ),
                       ),
-                    ),
-                    Positioned(
-                      child: FadeIn(
-                        1,
-                        Container(
-                          margin: const EdgeInsets.only(top: 15),
-                          child: Center(
-                            child: Text(
-                                "Dream Diary", //pls change name if u want
-                                style: GoogleFonts.comfortaa(
-                                    color: Colors.white,
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.bold)),
+                      Positioned(
+                        child: FadeIn(
+                          1,
+                          Container(
+                            margin: const EdgeInsets.only(top: 15),
+                            child: Center(
+                              child: Text(
+                                  "Dream Diary", //pls change name if u want
+                                  style: GoogleFonts.comfortaa(
+                                      color: Colors.white,
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.bold)),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -207,7 +210,16 @@ class _LoginScreenState extends State<LoginScreen> {
       );
     } else {
       // Perform login logic here
-      Navigator.pushReplacementNamed(context, NavigationBarApp.routeName);
+      Navigator.pushReplacement(
+        context,
+        PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 500),
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return FadeTransition(
+                opacity: animation, child: NavigationBarApp());
+          },
+        ),
+      );
     }
   }
 
