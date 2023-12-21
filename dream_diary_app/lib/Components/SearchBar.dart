@@ -20,11 +20,11 @@ class _SearchBarAppState extends State<SearchBarApp> {
         labelStyle: GoogleFonts.comfortaa(),
         hintStyle: GoogleFonts.comfortaa(),
         hintText: 'Search for an entry',
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.white),
+        enabledBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.white, width: 1.0),
         ),
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.white),
+        focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.white, width: 2.0),
         ),
       ),
       onSubmitted: (value) {

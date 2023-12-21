@@ -11,6 +11,8 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  late String searchQuery = ''; //store query
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class _SearchPageState extends State<SearchPage> {
             FadeIn(
               1,
               Container(
-                height: 400,
+                height: 200,
                 padding: EdgeInsets.only(left: 20),
                 decoration: const BoxDecoration(
                   image: DecorationImage(
@@ -32,17 +34,29 @@ class _SearchPageState extends State<SearchPage> {
                 child: Stack(
                   children: [
                     Positioned(
-                      top: 45,
+                      top: 55,
                       width: 380,
                       child: Padding(
                         padding: EdgeInsets.all(8),
                         child: FadeIn(
                           1,
-                          SearchBarApp(),
+                          SearchBarApp(), //Search Bar field
                         ),
                       ),
                     ),
                   ],
+                ),
+              ),
+            ),
+            FadeIn(
+              1,
+              Positioned(
+                child: Container(
+                  height: 420,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/search_bg.png'),
+                          fit: BoxFit.fill)),
                 ),
               ),
             ),

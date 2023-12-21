@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
+import 'package:dream_diary_app/Components/CalendarSelect.dart';
+import 'package:dream_diary_app/Components/newEntryFloatingButton.dart';
 import 'package:dream_diary_app/Models/quote.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -98,7 +100,7 @@ class _DashboardState extends State<Dashboard>
       ],
     ).animate(_controller);
 
-    quote = Quote(0, "");
+    quote = Quote(0, "", "");
     getQuote(); //retrieve quote
   }
 
@@ -139,6 +141,7 @@ class _DashboardState extends State<Dashboard>
                           child: Column(
                             children: <Widget>[
                               Container(
+                                //Quote Box
                                 height: 130,
                                 width: 350,
                                 decoration: BoxDecoration(
@@ -153,32 +156,37 @@ class _DashboardState extends State<Dashboard>
                                   ),
                                 ),
                                 child: Center(
-                                    child: Padding(
-                                  padding: const EdgeInsets.all(25),
-                                  child: quote.text.isEmpty
-                                      ? Center(
-                                          child: CircularProgressIndicator(
-                                            color: Colors.white,
-                                            strokeWidth: 3.0,
-                                          ),
-                                        )
-                                      : Text(quote.text,
-                                          textAlign: TextAlign.center,
-                                          style: GoogleFonts.comfortaa(
-                                            fontSize: 12,
-                                            textStyle: const TextStyle(
-                                                wordSpacing: 2.0,
-                                                fontWeight: FontWeight.w600),
-                                            color: const Color.fromRGBO(
-                                                94, 84, 142, 0.7),
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                          maxLines: 3),
-                                )),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(25),
+                                    child: quote.text.isEmpty
+                                        ? Center(
+                                            child: CircularProgressIndicator(
+                                              color: Colors.white,
+                                              strokeWidth: 3.0,
+                                            ),
+                                          )
+                                        : Text(quote.text,
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.comfortaa(
+                                              fontSize: 12,
+                                              textStyle: const TextStyle(
+                                                  wordSpacing: 2.0,
+                                                  fontWeight: FontWeight.w600),
+                                              color: const Color.fromRGBO(
+                                                  94, 84, 142, 0.7),
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 5),
+                                  ),
+                                ),
                               ),
                             ],
                           ),
                         ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const SingleChoice(), //filter
                       ],
                     );
                   },
@@ -188,19 +196,26 @@ class _DashboardState extends State<Dashboard>
           ],
         ),
       ),
+      floatingActionButton: newEntryFloatingButton(
+        //New Entry Button
+        onPressed: nullFn,
+      ),
     );
   }
 
+  void nullFn() {
+    //asdsd
+  }
   Future<void> getQuote() async {
     try {
       Response response =
-          await http.get(Uri.parse("https://api.adviceslip.com/advice"));
+          await http.get(Uri.parse("https://dummyjson.com/quotes/random"));
 
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonData = jsonDecode(response.body);
-        Map<String, dynamic> slipData = jsonData['slip'];
 
-        Quote newQuote = Quote(slipData['id'], slipData['advice']);
+        Quote newQuote =
+            Quote(jsonData['id'], jsonData['quote'], jsonData['author']);
 
         setState(() {
           quote = newQuote;

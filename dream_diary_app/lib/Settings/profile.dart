@@ -15,7 +15,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  String username = "Haatdog"; // Replace with logic to get the username
+  String username = "Haatdog"; //username
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +49,7 @@ class _ProfileState extends State<Profile> {
                       ),
                       const SizedBox(height: 10),
                       Text(
+                        //Username
                         username,
                         style: GoogleFonts.comfortaa(
                           color: Colors.white,

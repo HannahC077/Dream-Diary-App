@@ -105,6 +105,7 @@ class _RegistrationState extends State<Registration> {
                                 ),
                               ),
                               child: CustomTextFormField(
+                                  //Username Field
                                   labelText: "",
                                   hintText: "",
                                   textInputType: TextInputType.name,
@@ -163,6 +164,7 @@ class _RegistrationState extends State<Registration> {
                                 ),
                               ),
                               child: CustomTextFormField(
+                                  //Email Field
                                   labelText: "",
                                   hintText: "",
                                   textInputType: TextInputType.name,
@@ -221,6 +223,7 @@ class _RegistrationState extends State<Registration> {
                                 ),
                               ),
                               child: PasswordField(
+                                  //Password Field
                                   labelText: "",
                                   hintText: "",
                                   obscureText: obscureText,

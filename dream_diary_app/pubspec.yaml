@@ -68,6 +68,7 @@ flutter:
     - assets/images/profile_bg.png
     - assets/images/default_prof.jpg
     - assets/images/search_header.png
+    - assets/images/search_bg.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

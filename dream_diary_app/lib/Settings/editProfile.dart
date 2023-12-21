@@ -101,6 +101,7 @@ class _EditProfileState extends State<EditProfile> {
                                 ),
                               ),
                               child: CustomTextFormField(
+                                  //Username Field
                                   labelText: "",
                                   hintText: "",
                                   textInputType: TextInputType.name,
@@ -159,6 +160,7 @@ class _EditProfileState extends State<EditProfile> {
                                 ),
                               ),
                               child: CustomTextFormField(
+                                  //Email Field
                                   labelText: "",
                                   hintText: "",
                                   textInputType: TextInputType.name,
@@ -166,7 +168,7 @@ class _EditProfileState extends State<EditProfile> {
                             ),
                           ],
                         )),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     const SizedBox(

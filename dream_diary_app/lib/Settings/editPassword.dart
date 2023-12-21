@@ -47,7 +47,7 @@ class _EditPasswordState extends State<EditPassword> {
                     Container(
                       margin: const EdgeInsets.only(top: 15),
                       child: Center(
-                        child: Text("Update Password",
+                        child: Text("Change Password",
                             style: GoogleFonts.comfortaa(
                                 color: Colors.white,
                                 fontSize: 30,
@@ -102,6 +102,7 @@ class _EditPasswordState extends State<EditPassword> {
                                 ),
                               ),
                               child: PasswordField(
+                                  //Password Field
                                   labelText: "",
                                   hintText: "",
                                   obscureText: obscureText,
@@ -161,6 +162,7 @@ class _EditPasswordState extends State<EditPassword> {
                                 ),
                               ),
                               child: PasswordField(
+                                  //Confirm Password Field
                                   labelText: "",
                                   hintText: "",
                                   obscureText: obscureText,

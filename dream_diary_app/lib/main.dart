@@ -84,7 +84,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         Container(
                           margin: const EdgeInsets.only(top: 15),
                           child: Center(
-                            child: Text("Dream Diary",
+                            child: Text(
+                                "Dream Diary", //pls change name if u want
                                 style: GoogleFonts.comfortaa(
                                     color: Colors.white,
                                     fontSize: 40,

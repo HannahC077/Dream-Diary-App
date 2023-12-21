@@ -3,6 +3,7 @@ import 'package:dream_diary_app/Dashboard/dashboard.dart';
 import 'package:dream_diary_app/Dashboard/search.dart';
 import 'package:dream_diary_app/Settings/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NavigationBarApp extends StatefulWidget {
   static const String routeName = "navigation";
@@ -66,6 +67,8 @@ class _NavigationBarAppState extends State<NavigationBarApp> {
               label: "Settings",
             )
           ],
+          selectedLabelStyle:
+              GoogleFonts.comfortaa(fontSize: 12, fontWeight: FontWeight.w600),
           onTap: (index) {
             setState(() {
               _currentIndex = index;
