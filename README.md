@@ -4,5 +4,5 @@
 
 Clone the repository with this command using the repository URL
     ```
-    git clone "https://github.com/HannahC077/Dream-Diary-App"
+    git clone https://github.com/HannahC077/Dream-Diary-App
     ```
