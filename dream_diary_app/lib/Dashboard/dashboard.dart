@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
 import 'package:dream_diary_app/Components/CalendarSelect.dart';
 import 'package:dream_diary_app/Components/NewEntryFloatingButton.dart';
+import 'package:dream_diary_app/Dashboard/Dream%20Entry/editEntry.dart';
 import 'package:dream_diary_app/Dashboard/Dream%20Entry/newEntry.dart';
 import 'package:dream_diary_app/Models/quote.dart';
 import 'package:flutter/material.dart';
@@ -209,23 +210,9 @@ class _DashboardState extends State<Dashboard>
     Navigator.push(
       context,
       PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 500),
         pageBuilder: (context, animation, secondaryAnimation) {
-          return NewEntry();
-        },
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          const begin = 0.0;
-          const end = 1.0;
-          const curve = Curves.easeInOut;
-
-          var tween =
-              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-          var fadeAnimation = animation.drive(tween);
-
-          return FadeTransition(
-            opacity: fadeAnimation,
-            child: child,
-          );
+          return FadeTransition(opacity: animation, child: NewEntry());
         },
       ),
     );

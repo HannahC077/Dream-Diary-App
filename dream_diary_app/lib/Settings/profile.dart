@@ -149,11 +149,27 @@ class _ProfileState extends State<Profile> {
   }
 
   void editProfile() {
-    Navigator.pushNamed(context, EditProfile.routeName);
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 500),
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return FadeTransition(opacity: animation, child: EditProfile());
+        },
+      ),
+    );
   }
 
   void editPassword() {
-    Navigator.pushNamed(context, EditPassword.routeName);
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 500),
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return FadeTransition(opacity: animation, child: EditPassword());
+        },
+      ),
+    );
   }
 
   Future<void> _showLogoutConfirmation(BuildContext context) async {
@@ -176,16 +192,24 @@ class _ProfileState extends State<Profile> {
             actions: <Widget>[
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // Close the dialog
+                  Navigator.of(context).pop();
                 },
                 child: Text('Cancel',
                     style: GoogleFonts.comfortaa(fontWeight: FontWeight.bold)),
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // Close the dialog
-                  Navigator.pushReplacementNamed(
-                      context, LoginScreen.routeName);
+                  Navigator.of(context).pop();
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: const Duration(milliseconds: 500),
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return FadeTransition(
+                            opacity: animation, child: LoginScreen());
+                      },
+                    ),
+                  );
                 },
                 child: Text('Log Out',
                     style: GoogleFonts.comfortaa(fontWeight: FontWeight.bold)),

@@ -1,8 +1,10 @@
 import 'package:dream_diary_app/Components/CustomTextFormField.dart';
 import 'package:dream_diary_app/Components/DatePicker.dart';
 import 'package:dream_diary_app/Components/LongTextField.dart';
+import 'package:dream_diary_app/Components/NavigationBar.dart';
 import 'package:dream_diary_app/Components/Primary%20Button.dart';
 import 'package:dream_diary_app/Components/TimePicker.dart';
+import 'package:dream_diary_app/Dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -216,7 +218,7 @@ class _NewEntryState extends State<NewEntry> {
                         height: 20,
                       ),
                       //Save Entry Button
-                      PrimaryButton(text: "Save Entry", onPressed: nullFn),
+                      PrimaryButton(text: "Save Entry", onPressed: saveEntry),
                       const SizedBox(
                         height: 10.0,
                       ),
@@ -231,7 +233,81 @@ class _NewEntryState extends State<NewEntry> {
     );
   }
 
-  void nullFn() {
+  void saveEntry() {
     //asdsdaadsaa
+    final title = titleController.text.trim();
+    final content = contentController.text.trim();
+
+    if (title.isEmpty || content.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Color.fromRGBO(159, 134, 192, 1),
+          behavior: SnackBarBehavior.fixed,
+          content: Text("Title and description are required!",
+              textAlign: TextAlign.center,
+              style: GoogleFonts.comfortaa(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500)),
+        ),
+      );
+    } else {
+      // Save entry logic here
+
+      // confirm saved entry dialog box
+      _saveEntryConfirmation(context);
+    }
+  }
+
+  Future<void> _saveEntryConfirmation(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return FadeIn(
+          1,
+          AlertDialog(
+            backgroundColor: Colors.white,
+            title: Text('Dream recorded!',
+                style: GoogleFonts.comfortaa(
+                    color: Colors.grey.shade700,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold)),
+            content: Text(
+              'Have a great day ahead!',
+              style: GoogleFonts.comfortaa(
+                color: Colors.grey.shade700,
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('New Entry',
+                    style: GoogleFonts.comfortaa(fontWeight: FontWeight.bold)),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: const Duration(milliseconds: 500),
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return FadeTransition(
+                            opacity: animation,
+                            child: const NavigationBarApp());
+                      },
+                    ),
+                  );
+                },
+                child: Text('OK',
+                    style: GoogleFonts.comfortaa(fontWeight: FontWeight.bold)),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

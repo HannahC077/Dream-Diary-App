@@ -1,7 +1,7 @@
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
+import 'package:dream_diary_app/Components/NavigationBar.dart';
 import 'package:dream_diary_app/Components/PasswordField.dart';
 import 'package:dream_diary_app/Components/Primary%20Button.dart';
-import 'package:dream_diary_app/Settings/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -227,7 +227,16 @@ class _EditPasswordState extends State<EditPassword> {
                 fontSize: 12,
                 fontWeight: FontWeight.w500)),
       ));
-      Navigator.pushReplacementNamed(context, Profile.routeName);
+      Navigator.pushReplacement(
+        context,
+        PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 500),
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return FadeTransition(
+                opacity: animation, child: NavigationBarApp());
+          },
+        ),
+      );
     }
   }
 
