@@ -30,7 +30,7 @@ class _SingleChoiceState extends State<SingleChoice> {
             child: Material(
               borderRadius: BorderRadius.circular(35),
               color: calendarView == item
-                  ? Color.fromRGBO(179, 168, 212, 1)
+                  ? Color.fromRGBO(159, 134, 192, 1)
                   : Colors.transparent,
               child: Padding(
                 padding: const EdgeInsets.symmetric(

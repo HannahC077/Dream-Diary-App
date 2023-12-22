@@ -24,7 +24,8 @@ class _DatePickerComponentState extends State<DatePickerComponent> {
           data: ThemeData.light().copyWith(
             dialogBackgroundColor: Colors.white,
             colorScheme: const ColorScheme.light(
-                primary: Color.fromRGBO(159, 134, 192, 1)),
+              primary: Color.fromRGBO(159, 134, 192, 1),
+            ),
             textButtonTheme: TextButtonThemeData(
               style: TextButton.styleFrom(
                 textStyle: GoogleFonts.comfortaa(fontWeight: FontWeight.bold),

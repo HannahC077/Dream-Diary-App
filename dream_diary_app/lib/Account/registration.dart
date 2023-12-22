@@ -84,35 +84,36 @@ class _RegistrationState extends State<Registration> {
                 child: Column(
                   children: <Widget>[
                     Container(
-                        padding: const EdgeInsets.all(0),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(18),
-                          border: Border.all(
-                            color: Colors.grey.shade400,
-                            width: 2.0,
-                          ),
+                      padding: const EdgeInsets.all(0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(18),
+                        border: Border.all(
+                          color: Colors.grey.shade400,
+                          width: 2.0,
                         ),
-                        child: Column(
-                          children: <Widget>[
-                            Container(
-                              height: 50.0,
-                              padding: const EdgeInsets.only(left: 20.0),
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(
-                                      color: Colors.grey[100] ?? Colors.grey),
-                                ),
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            height: 50.0,
+                            padding: const EdgeInsets.only(left: 20.0),
+                            decoration: BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                    color: Colors.grey[100] ?? Colors.grey),
                               ),
-                              child: CustomTextFormField(
-                                  //Username Field
-                                  labelText: "",
-                                  hintText: "",
-                                  textInputType: TextInputType.name,
-                                  controller: usernameController),
                             ),
-                          ],
-                        )),
+                            child: CustomTextFormField(
+                                //Username Field
+                                labelText: "",
+                                hintText: "",
+                                textInputType: TextInputType.name,
+                                controller: usernameController),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

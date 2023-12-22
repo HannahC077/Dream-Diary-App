@@ -2,6 +2,7 @@ import 'package:dream_diary_app/Components/CustomTextFormField.dart';
 import 'package:dream_diary_app/Components/DatePicker.dart';
 import 'package:dream_diary_app/Components/LongTextField.dart';
 import 'package:dream_diary_app/Components/Primary%20Button.dart';
+import 'package:dream_diary_app/Components/TimePicker.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,7 +31,7 @@ class _NewEntryState extends State<NewEntry> {
               1,
               Container(
                 height: 330,
-                padding: EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20),
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/images/entry_bg.png'),
@@ -65,7 +66,7 @@ class _NewEntryState extends State<NewEntry> {
                         child: Column(
                           children: <Widget>[
                             Container(
-                              height: 400,
+                              height: 410,
                               padding: const EdgeInsets.only(left: 15, top: 25),
                               alignment: Alignment.topCenter,
                               decoration: BoxDecoration(
@@ -118,11 +119,18 @@ class _NewEntryState extends State<NewEntry> {
                                       const SizedBox(
                                         width: 20.0,
                                       ),
-                                      //Time Picker
+                                      //Time Picker Field
+                                      TimePickerComponent(
+                                        initialTime: TimeOfDay.now(),
+                                        onTimeSelected: (selectedTime) {
+                                          // Handle the selected time here
+                                          print('Selected time: $selectedTime');
+                                        },
+                                      ),
                                     ],
                                   ),
                                   const SizedBox(
-                                    height: 20.0,
+                                    height: 10.0,
                                   ),
                                   Row(
                                     //Title Row
@@ -133,24 +141,44 @@ class _NewEntryState extends State<NewEntry> {
                                         width: 10.0,
                                       ),
                                       Text(
-                                        "Dream Title",
+                                        "Title",
                                         style: GoogleFonts.comfortaa(
                                             color: Colors.grey.shade700,
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      const SizedBox(
-                                        width: 20.0,
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 20),
+                                        child: Row(
+                                          children: <Widget>[
+                                            Container(
+                                              width: 200.0,
+                                              height: 40,
+
+                                              decoration: BoxDecoration(
+                                                border: Border(
+                                                  bottom: BorderSide(
+                                                    color: Colors.grey[100] ??
+                                                        Colors.grey,
+                                                  ),
+                                                ),
+                                              ),
+                                              //Title Field
+                                              child: CustomTextFormField(
+                                                  labelText: "",
+                                                  hintText:
+                                                      "Give your dream a title",
+                                                  textInputType:
+                                                      TextInputType.text,
+                                                  controller: titleController),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                      //Title Field
-                                      // CustomTextFormField(
-                                      //     labelText: "",
-                                      //     hintText: "",
-                                      //     textInputType: TextInputType.text,
-                                      //     controller: titleController),
                                     ],
                                   ),
                                   const SizedBox(
-                                    height: 20.0,
+                                    height: 10.0,
                                   ),
                                   Row(
                                     //Content Row
@@ -166,20 +194,18 @@ class _NewEntryState extends State<NewEntry> {
                                             color: Colors.grey.shade700,
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      const SizedBox(
-                                        width: 20.0,
-                                      ),
-                                      //Content Field
                                     ],
                                   ),
-                                  const SizedBox(
-                                    height: 20.0,
+
+                                  // Content Field
+                                  Container(
+                                    padding: EdgeInsets.only(right: 20),
+                                    child: LongTextField(
+                                        labelText: "What was the dream about?",
+                                        hintText: "",
+                                        textInputType: TextInputType.text,
+                                        controller: contentController),
                                   ),
-                                  LongTextField(
-                                      labelText: "What was the dream about?",
-                                      hintText: "",
-                                      textInputType: TextInputType.text,
-                                      controller: contentController)
                                 ],
                               ),
                             ),
@@ -187,7 +213,7 @@ class _NewEntryState extends State<NewEntry> {
                         ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 20,
                       ),
                       //Save Entry Button
                       PrimaryButton(text: "Save Entry", onPressed: nullFn),

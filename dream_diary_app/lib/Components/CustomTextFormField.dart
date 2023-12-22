@@ -33,6 +33,7 @@ class CustomTextFormField extends StatelessWidget {
         // Handle the submission logic here
         controller.clear();
       },
+      maxLines: 1,
     );
   }
 }
