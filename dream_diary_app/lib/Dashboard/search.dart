@@ -25,13 +25,13 @@ class _SearchPageState extends State<SearchPage> {
               1,
               Container(
                 height: 200,
-                padding: EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20),
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/images/search_header.png'),
                       fit: BoxFit.fill),
                 ),
-                child: Stack(
+                child: const Stack(
                   children: [
                     Positioned(
                       top: 45,
@@ -48,15 +48,16 @@ class _SearchPageState extends State<SearchPage> {
                 ),
               ),
             ),
+            // Removed the Positioned widget from here
             FadeIn(
               1,
-              Positioned(
-                child: Container(
-                  height: 420,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('assets/images/search_bg.png'),
-                          fit: BoxFit.fill)),
+              Container(
+                height: 420,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/search_bg.png'),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ),

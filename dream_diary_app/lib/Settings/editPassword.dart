@@ -20,6 +20,7 @@ class _EditPasswordState extends State<EditPassword> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
+  @override
   void dispose() {
     passwordController.dispose();
     super.dispose();
@@ -61,7 +62,7 @@ class _EditPasswordState extends State<EditPassword> {
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 35.0),
+                padding: const EdgeInsets.only(left: 35.0),
                 child: Row(
                   children: [
                     Text("Password",
@@ -77,7 +78,7 @@ class _EditPasswordState extends State<EditPassword> {
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
+                padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -121,7 +122,7 @@ class _EditPasswordState extends State<EditPassword> {
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 35.0),
+                padding: const EdgeInsets.only(left: 35.0),
                 child: Row(
                   children: [
                     Text("Confirm Password",
@@ -137,7 +138,7 @@ class _EditPasswordState extends State<EditPassword> {
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
+                padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -192,7 +193,7 @@ class _EditPasswordState extends State<EditPassword> {
     if (password.isEmpty || conPassword.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          backgroundColor: Color.fromRGBO(182, 162, 209, 1),
+          backgroundColor: const Color.fromRGBO(182, 162, 209, 1),
           behavior: SnackBarBehavior.fixed,
           content: Text("All fields are required!",
               textAlign: TextAlign.center,
@@ -205,7 +206,7 @@ class _EditPasswordState extends State<EditPassword> {
     } else if (password != conPassword) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          backgroundColor: Color.fromRGBO(182, 162, 209, 1),
+          backgroundColor: const Color.fromRGBO(182, 162, 209, 1),
           behavior: SnackBarBehavior.fixed,
           content: Text("Passwords do not match!",
               textAlign: TextAlign.center,
@@ -218,7 +219,7 @@ class _EditPasswordState extends State<EditPassword> {
     } else {
       // Perform update logic here
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        backgroundColor: Color.fromRGBO(182, 162, 209, 1),
+        backgroundColor: const Color.fromRGBO(182, 162, 209, 1),
         behavior: SnackBarBehavior.fixed,
         content: Text("Password is updated!",
             textAlign: TextAlign.center,
@@ -233,7 +234,7 @@ class _EditPasswordState extends State<EditPassword> {
           transitionDuration: const Duration(milliseconds: 500),
           pageBuilder: (context, animation, secondaryAnimation) {
             return FadeTransition(
-                opacity: animation, child: NavigationBarApp());
+                opacity: animation, child: const NavigationBarApp());
           },
         ),
       );

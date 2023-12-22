@@ -41,7 +41,7 @@ class _ProfileState extends State<Profile> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         backgroundColor: Colors.white,
                         radius: 50,
                         backgroundImage:
@@ -154,7 +154,7 @@ class _ProfileState extends State<Profile> {
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 500),
         pageBuilder: (context, animation, secondaryAnimation) {
-          return FadeTransition(opacity: animation, child: EditProfile());
+          return FadeTransition(opacity: animation, child: const EditProfile());
         },
       ),
     );
@@ -166,7 +166,8 @@ class _ProfileState extends State<Profile> {
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 500),
         pageBuilder: (context, animation, secondaryAnimation) {
-          return FadeTransition(opacity: animation, child: EditPassword());
+          return FadeTransition(
+              opacity: animation, child: const EditPassword());
         },
       ),
     );
@@ -206,7 +207,7 @@ class _ProfileState extends State<Profile> {
                       transitionDuration: const Duration(milliseconds: 500),
                       pageBuilder: (context, animation, secondaryAnimation) {
                         return FadeTransition(
-                            opacity: animation, child: LoginScreen());
+                            opacity: animation, child: const LoginScreen());
                       },
                     ),
                   );

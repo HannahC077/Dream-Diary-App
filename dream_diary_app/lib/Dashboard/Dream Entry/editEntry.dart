@@ -4,7 +4,6 @@ import 'package:dream_diary_app/Components/LongTextField.dart';
 import 'package:dream_diary_app/Components/NavigationBar.dart';
 import 'package:dream_diary_app/Components/Primary%20Button.dart';
 import 'package:dream_diary_app/Components/TimePicker.dart';
-import 'package:dream_diary_app/Dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -201,7 +200,7 @@ class _EditEntryState extends State<EditEntry> {
 
                                   // Content Field
                                   Container(
-                                    padding: EdgeInsets.only(right: 20),
+                                    padding: const EdgeInsets.only(right: 20),
                                     child: LongTextField(
                                         labelText: "What was the dream about?",
                                         hintText: "",
@@ -241,7 +240,7 @@ class _EditEntryState extends State<EditEntry> {
     if (title.isEmpty || content.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          backgroundColor: Color.fromRGBO(159, 134, 192, 1),
+          backgroundColor: const Color.fromRGBO(159, 134, 192, 1),
           behavior: SnackBarBehavior.fixed,
           content: Text("Title and description are required!",
               textAlign: TextAlign.center,

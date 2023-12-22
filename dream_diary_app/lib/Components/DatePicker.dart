@@ -70,7 +70,7 @@ class _DatePickerComponentState extends State<DatePickerComponent> {
             style: GoogleFonts.comfortaa(
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
-                color: Color.fromRGBO(159, 134, 192, 1)),
+                color: const Color.fromRGBO(159, 134, 192, 1)),
           ),
           const SizedBox(
             width: 15.0,
@@ -82,7 +82,7 @@ class _DatePickerComponentState extends State<DatePickerComponent> {
               onPressed: () => _selectDate(context),
               style: ButtonStyle(
                 padding: MaterialStateProperty.all(
-                  EdgeInsets.only(right: 0),
+                  const EdgeInsets.only(right: 0),
                 ),
                 backgroundColor: MaterialStateProperty.all(Colors.white),
               ),

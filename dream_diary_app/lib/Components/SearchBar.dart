@@ -16,7 +16,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
     return TextField(
       controller: searchController,
       decoration: InputDecoration(
-        prefixIcon: Icon(Icons.search, color: Colors.white),
+        prefixIcon: const Icon(Icons.search, color: Colors.white),
         labelStyle: GoogleFonts.comfortaa(),
         hintStyle: GoogleFonts.comfortaa(),
         hintText: 'Search for an entry',

@@ -1,22 +1,17 @@
-import 'package:dream_diary_app/Components/CustomTextFormField.dart';
-import 'package:dream_diary_app/Components/DatePicker.dart';
-import 'package:dream_diary_app/Components/LongTextField.dart';
 import 'package:dream_diary_app/Components/NavigationBar.dart';
-import 'package:dream_diary_app/Components/Primary%20Button.dart';
-import 'package:dream_diary_app/Components/TimePicker.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class NewEntry extends StatefulWidget {
-  static const String routeName = "new entry";
-  const NewEntry({super.key});
+class FullEntry extends StatefulWidget {
+  static const String routeName = "full entry";
+  const FullEntry({super.key});
 
   @override
-  State<NewEntry> createState() => _NewEntryState();
+  State<FullEntry> createState() => _FullEntryState();
 }
 
-class _NewEntryState extends State<NewEntry> {
+class _FullEntryState extends State<FullEntry> {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController contentController = TextEditingController();
 
@@ -63,12 +58,11 @@ class _NewEntryState extends State<NewEntry> {
                             ),
                           ],
                         ),
-
                         //White Container
                         child: Column(
                           children: <Widget>[
                             Container(
-                              height: 410,
+                              height: 450,
                               padding: const EdgeInsets.only(left: 15, top: 25),
                               alignment: Alignment.topCenter,
                               decoration: BoxDecoration(
@@ -80,8 +74,8 @@ class _NewEntryState extends State<NewEntry> {
                               ),
                               child: Column(
                                 children: [
-                                  //Date Row
                                   Row(
+                                    //Date Row
                                     children: [
                                       Icon(Icons.date_range_rounded,
                                           color: Colors.grey.shade700),
@@ -97,18 +91,22 @@ class _NewEntryState extends State<NewEntry> {
                                       const SizedBox(
                                         width: 20.0,
                                       ),
-
                                       //Date Picker
-                                      DatePickerComponent(),
+                                      Text(
+                                        "arf arf", //change to date variable
+                                        style: GoogleFonts.comfortaa(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w600,
+                                            color: const Color.fromRGBO(
+                                                159, 134, 192, 1)),
+                                      ),
                                     ],
                                   ),
-
                                   const SizedBox(
                                     height: 20.0,
                                   ),
-
-                                  //Time Row
                                   Row(
+                                    //Time Row
                                     children: [
                                       Icon(Icons.timelapse_rounded,
                                           color: Colors.grey.shade700),
@@ -121,28 +119,25 @@ class _NewEntryState extends State<NewEntry> {
                                             color: Colors.grey.shade700,
                                             fontWeight: FontWeight.bold),
                                       ),
-
                                       const SizedBox(
                                         width: 20.0,
                                       ),
-
                                       //Time Picker Field
-                                      TimePickerComponent(
-                                        initialTime: TimeOfDay.now(),
-                                        onTimeSelected: (selectedTime) {
-                                          // Handle the selected time here
-                                          print('Selected time: $selectedTime');
-                                        },
+                                      Text(
+                                        "arf arf", //change to time variable
+                                        style: GoogleFonts.comfortaa(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w600,
+                                            color: const Color.fromRGBO(
+                                                159, 134, 192, 1)),
                                       ),
                                     ],
                                   ),
-
                                   const SizedBox(
-                                    height: 10.0,
+                                    height: 15.0,
                                   ),
-
-                                  //Title Row
                                   Row(
+                                    //Title Row
                                     children: [
                                       Icon(Icons.text_fields_rounded,
                                           color: Colors.grey.shade700),
@@ -155,39 +150,21 @@ class _NewEntryState extends State<NewEntry> {
                                             color: Colors.grey.shade700,
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
-                                        child: Row(
-                                          children: <Widget>[
-                                            Container(
-                                              width: 200.0,
-                                              height: 40,
-                                              decoration: BoxDecoration(
-                                                border: Border(
-                                                  bottom: BorderSide(
-                                                    color: Colors.grey[100] ??
-                                                        Colors.grey,
-                                                  ),
-                                                ),
-                                              ),
-
-                                              //Title Field
-                                              child: CustomTextFormField(
-                                                  labelText: "",
-                                                  hintText:
-                                                      "Give your dream a title",
-                                                  textInputType:
-                                                      TextInputType.text,
-                                                  controller: titleController),
-                                            ),
-                                          ],
-                                        ),
+                                      const SizedBox(
+                                        width: 20.0,
+                                      ),
+                                      //Title Field
+                                      Text(
+                                        "am an entry title raah", //change to title variable
+                                        style: GoogleFonts.comfortaa(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.grey.shade600),
                                       ),
                                     ],
                                   ),
                                   const SizedBox(
-                                    height: 10.0,
+                                    height: 15.0,
                                   ),
 
                                   //Content Row
@@ -209,12 +186,23 @@ class _NewEntryState extends State<NewEntry> {
 
                                   // Content Field
                                   Container(
-                                    padding: const EdgeInsets.only(right: 20),
-                                    child: LongTextField(
-                                        labelText: "What was the dream about?",
-                                        hintText: "",
-                                        textInputType: TextInputType.text,
-                                        controller: contentController),
+                                    width: 350,
+                                    padding: const EdgeInsets.only(
+                                      top: 15,
+                                      left: 10,
+                                      right: 30,
+                                    ),
+                                    child: Text(
+                                      //change to description variable
+                                      "am aaaa descriptionnn am",
+                                      style: GoogleFonts.comfortaa(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.grey.shade600),
+                                      maxLines: 12,
+                                      textAlign: TextAlign.justify,
+                                      overflow: TextOverflow.fade,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -222,15 +210,8 @@ class _NewEntryState extends State<NewEntry> {
                           ],
                         ),
                       ),
-
                       const SizedBox(
                         height: 20,
-                      ),
-
-                      //Save Entry Button
-                      PrimaryButton(text: "Save Entry", onPressed: saveEntry),
-                      const SizedBox(
-                        height: 10.0,
                       ),
                     ],
                   ),
@@ -244,6 +225,7 @@ class _NewEntryState extends State<NewEntry> {
   }
 
   void saveEntry() {
+    //asdsdaadsaa
     final title = titleController.text.trim();
     final content = contentController.text.trim();
 

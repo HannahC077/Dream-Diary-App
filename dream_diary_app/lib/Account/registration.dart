@@ -21,6 +21,7 @@ class _RegistrationState extends State<Registration> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
 
+  @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
@@ -64,7 +65,7 @@ class _RegistrationState extends State<Registration> {
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 35.0),
+                padding: const EdgeInsets.only(left: 35.0),
                 child: Row(
                   children: [
                     Text("Username",
@@ -80,7 +81,7 @@ class _RegistrationState extends State<Registration> {
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
+                padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -118,13 +119,13 @@ class _RegistrationState extends State<Registration> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 35.0),
+                padding: const EdgeInsets.only(left: 35.0),
                 child: Row(
                   children: [
                     Text("Email Address",
@@ -140,7 +141,7 @@ class _RegistrationState extends State<Registration> {
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
+                padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -177,13 +178,13 @@ class _RegistrationState extends State<Registration> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 35.0),
+                padding: const EdgeInsets.only(left: 35.0),
                 child: Row(
                   children: [
                     Text("Password",
@@ -199,7 +200,7 @@ class _RegistrationState extends State<Registration> {
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
+                padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -255,7 +256,7 @@ class _RegistrationState extends State<Registration> {
     if (email.isEmpty || password.isEmpty || username.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          backgroundColor: Color.fromRGBO(182, 162, 209, 1),
+          backgroundColor: const Color.fromRGBO(182, 162, 209, 1),
           behavior: SnackBarBehavior.fixed,
           content: Text("All fields are required!",
               textAlign: TextAlign.center,

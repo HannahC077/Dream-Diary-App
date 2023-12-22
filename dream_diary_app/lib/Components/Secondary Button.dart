@@ -15,7 +15,7 @@ class SecondaryButton extends StatelessWidget {
         child: Text(
           text,
           style: GoogleFonts.comfortaa(
-              color: Color.fromRGBO(159, 134, 192, 1),
+              color: const Color.fromRGBO(159, 134, 192, 1),
               fontWeight: FontWeight.bold),
         ));
   }

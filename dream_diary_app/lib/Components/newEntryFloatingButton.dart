@@ -16,7 +16,7 @@ class _NewEntryFloatingButtonState extends State<NewEntryFloatingButton> {
     return FloatingActionButton(
       onPressed: widget.onPressed,
       foregroundColor: Colors.white,
-      backgroundColor: const Color.fromRGBO(159, 134, 192, 1),
+      backgroundColor: const Color.fromRGBO(115, 104, 169, 1),
       shape: const CircleBorder(),
       child: const Icon(Icons.add, color: Colors.white),
     );

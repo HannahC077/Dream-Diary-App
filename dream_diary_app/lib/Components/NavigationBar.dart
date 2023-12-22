@@ -18,9 +18,9 @@ class _NavigationBarAppState extends State<NavigationBarApp> {
   int _currentIndex = 0;
 
   final screens = [
-    Dashboard(),
-    SearchPage(),
-    Profile(),
+    const Dashboard(),
+    const SearchPage(),
+    const Profile(),
   ];
 
   @override
@@ -32,11 +32,11 @@ class _NavigationBarAppState extends State<NavigationBarApp> {
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           type: BottomNavigationBarType.shifting,
-          backgroundColor: Color.fromRGBO(182, 162, 209, 1),
+          backgroundColor: const Color.fromRGBO(182, 162, 209, 1),
           unselectedFontSize: 12,
           unselectedItemColor: Colors.grey.shade500,
           selectedFontSize: 14,
-          selectedItemColor: Color.fromRGBO(182, 162, 209, 1),
+          selectedItemColor: const Color.fromRGBO(182, 162, 209, 1),
           showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(

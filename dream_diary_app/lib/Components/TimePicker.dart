@@ -30,7 +30,7 @@ class _TimePickerComponentState extends State<TimePickerComponent> {
               colorScheme: const ColorScheme.light(
                 primary: Color.fromRGBO(159, 134, 192, 1),
               ),
-              timePickerTheme: TimePickerThemeData(
+              timePickerTheme: const TimePickerThemeData(
                 dayPeriodColor: Color.fromRGBO(159, 134, 192, 1),
               ),
               textButtonTheme: TextButtonThemeData(

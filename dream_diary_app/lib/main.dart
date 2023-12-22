@@ -153,16 +153,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    Container(
-                      child: Padding(
-                          padding: EdgeInsets.symmetric(vertical: 5),
-                          child: Divider(
-                            color: Colors.grey.shade300,
-                            thickness: 2,
-                            indent: 6,
-                            endIndent: 6,
-                          )),
-                    ),
+                    Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: Divider(
+                          color: Colors.grey.shade300,
+                          thickness: 2,
+                          indent: 6,
+                          endIndent: 6,
+                        )),
                     const SizedBox(
                       height: 10,
                     ),
@@ -198,7 +196,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (email.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          backgroundColor: Color.fromRGBO(182, 162, 209, 1),
+          backgroundColor: const Color.fromRGBO(182, 162, 209, 1),
           behavior: SnackBarBehavior.fixed,
           content: Text("Email address & password is required!",
               textAlign: TextAlign.center,
@@ -216,7 +214,7 @@ class _LoginScreenState extends State<LoginScreen> {
           transitionDuration: const Duration(milliseconds: 500),
           pageBuilder: (context, animation, secondaryAnimation) {
             return FadeTransition(
-                opacity: animation, child: NavigationBarApp());
+                opacity: animation, child: const NavigationBarApp());
           },
         ),
       );

@@ -22,7 +22,7 @@ class PrimaryButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: [
               Color.fromRGBO(159, 134, 192, 1),
               Color.fromRGBO(159, 134, 192, .6)

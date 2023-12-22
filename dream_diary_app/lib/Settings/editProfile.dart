@@ -18,6 +18,7 @@ class _EditProfileState extends State<EditProfile> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
 
+  @override
   void dispose() {
     emailController.dispose();
     usernameController.dispose();
@@ -60,7 +61,7 @@ class _EditProfileState extends State<EditProfile> {
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 35.0),
+                padding: const EdgeInsets.only(left: 35.0),
                 child: Row(
                   children: [
                     Text("Username",
@@ -76,7 +77,7 @@ class _EditProfileState extends State<EditProfile> {
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
+                padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -113,13 +114,13 @@ class _EditProfileState extends State<EditProfile> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 35.0),
+                padding: const EdgeInsets.only(left: 35.0),
                 child: Row(
                   children: [
                     Text("Email Address",
@@ -135,7 +136,7 @@ class _EditProfileState extends State<EditProfile> {
             FadeIn(
               1,
               Padding(
-                padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
+                padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -192,7 +193,7 @@ class _EditProfileState extends State<EditProfile> {
     if (email.isEmpty || username.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          backgroundColor: Color.fromRGBO(182, 162, 209, 1),
+          backgroundColor: const Color.fromRGBO(182, 162, 209, 1),
           behavior: SnackBarBehavior.fixed,
           content: Text("All fields are required!",
               textAlign: TextAlign.center,
@@ -205,7 +206,7 @@ class _EditProfileState extends State<EditProfile> {
     } else {
       // Perform update logic here
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        backgroundColor: Color.fromRGBO(182, 162, 209, 1),
+        backgroundColor: const Color.fromRGBO(182, 162, 209, 1),
         behavior: SnackBarBehavior.fixed,
         content: Text("Username and Email Address is updated!",
             textAlign: TextAlign.center,
@@ -220,7 +221,7 @@ class _EditProfileState extends State<EditProfile> {
           transitionDuration: const Duration(milliseconds: 500),
           pageBuilder: (context, animation, secondaryAnimation) {
             return FadeTransition(
-                opacity: animation, child: NavigationBarApp());
+                opacity: animation, child: const NavigationBarApp());
           },
         ),
       );

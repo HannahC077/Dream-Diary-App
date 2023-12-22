@@ -1,4 +1,5 @@
 import 'package:dream_diary_app/Dashboard/Dream%20Entry/editEntry.dart';
+import 'package:dream_diary_app/Dashboard/Dream%20Entry/fullEntry.dart';
 import 'package:dream_diary_app/Dashboard/Dream%20Entry/newEntry.dart';
 import 'package:dream_diary_app/Dashboard/dashboard.dart';
 import 'package:dream_diary_app/Dashboard/search.dart';
@@ -22,4 +23,5 @@ final Map<String, WidgetBuilder> routes = {
       const NavigationBarApp(),
   NewEntry.routeName: (BuildContext context) => const NewEntry(),
   EditEntry.routeName: (BuildContext context) => const EditEntry(),
+  FullEntry.routeName: (BuildContext context) => const FullEntry(),
 };
