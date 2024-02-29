@@ -6,11 +6,13 @@ import 'package:dream_diary_app/Dashboard/Dream%20Entry/entryCard.dart';
 import 'package:dream_diary_app/Dashboard/Dream%20Entry/newEntry.dart';
 import 'package:dream_diary_app/Models/entry.dart';
 import 'package:dream_diary_app/Models/quote.dart';
+import 'package:dream_diary_app/Providers/entry_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class Dashboard extends StatefulWidget {
   static const String routeName = "dashboard";
@@ -133,6 +135,7 @@ class _DashboardState extends State<Dashboard>
 
   @override
   Widget build(BuildContext context) {
+    EntryProvider entryProvider = Provider.of<EntryProvider>(context);
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
@@ -301,10 +304,14 @@ class _DashboardState extends State<Dashboard>
           ),
         ),
       ),
-      floatingActionButton: NewEntryFloatingButton(
-        //New Entry Button
-        onPressed: newEntryPost,
-      ),
+      floatingActionButton: NewEntryFloatingButton(onPressed: () {
+        Navigator.pushNamed(
+          context,
+          NewEntry.routeName,
+        ).then((_) {
+          entryProvider.notifyNewEntry();
+        });
+      }),
     );
   }
 
@@ -314,7 +321,14 @@ class _DashboardState extends State<Dashboard>
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 500),
         pageBuilder: (context, animation, secondaryAnimation) {
-          return FadeTransition(opacity: animation, child: const NewEntry());
+          return FadeTransition(
+            opacity: animation,
+            child: NewEntry(
+              onSaveEntry: () {
+                fetchEntries();
+              },
+            ),
+          );
         },
       ),
     );
@@ -370,10 +384,43 @@ class _DashboardState extends State<Dashboard>
     }
   }
 
-  //Entry Functions
-  void fetchEntries() {
-    //add logic here
+  void fetchEntries() async {
+    try {
+      final response = await http.get(Uri.parse('http://localhost:3001'));
 
-    entries.sort((a, b) => b.date.compareTo(a.date));
+      if (response.statusCode == 200) {
+        List<dynamic> jsonData = jsonDecode(response.body);
+
+        entries.clear();
+
+        for (var entryData in jsonData) {
+          var entry = Entry.fromJson(entryData);
+          entries.add(entry);
+        }
+
+        entries.sort((a, b) {
+          final DateTime dateA = DateTime.parse(a.date);
+          final DateTime dateB = DateTime.parse(b.date);
+
+          int yearComparison = dateB.year.compareTo(dateA.year);
+          if (yearComparison != 0) {
+            return yearComparison;
+          }
+
+          int monthComparison = dateB.month.compareTo(dateA.month);
+          if (monthComparison != 0) {
+            return monthComparison;
+          }
+
+          return dateB.day.compareTo(dateA.day);
+        });
+
+        setState(() {});
+      } else {
+        print('Failed to fetch entries. Status code: ${response.statusCode}');
+      }
+    } catch (error) {
+      print('Error while fetching entries: $error');
+    }
   }
 }

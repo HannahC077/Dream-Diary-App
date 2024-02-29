@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:dream_diary_app/Components/CustomTextFormField.dart';
 import 'package:dream_diary_app/Components/DatePicker.dart';
 import 'package:dream_diary_app/Components/LongTextField.dart';
@@ -7,10 +8,14 @@ import 'package:dream_diary_app/Components/TimePicker.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
+import '../../Models/entry.dart';
 
 class NewEntry extends StatefulWidget {
   static const String routeName = "new entry";
-  const NewEntry({super.key});
+  final VoidCallback onSaveEntry;
+  const NewEntry({Key? key, required this.onSaveEntry}) : super(key: key);
 
   @override
   State<NewEntry> createState() => _NewEntryState();
@@ -243,7 +248,7 @@ class _NewEntryState extends State<NewEntry> {
     );
   }
 
-  void saveEntry() {
+  void saveEntry() async {
     final title = titleController.text.trim();
     final content = contentController.text.trim();
 
@@ -261,10 +266,38 @@ class _NewEntryState extends State<NewEntry> {
         ),
       );
     } else {
-      // Save entry logic here
+      Entry newEntry = Entry(
+        id: '',
+        date: '',
+        time: '',
+        title: title,
+        description: content,
+      );
 
-      // confirm saved entry dialog box
+      await createEntry(newEntry);
+      widget.onSaveEntry();
+
       _saveEntryConfirmation(context);
+    }
+  }
+
+  Future<void> createEntry(Entry newEntry) async {
+    try {
+      Response response = await http.post(
+        Uri.parse('http://localhost:3001/api/entries'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(newEntry.toJson()),
+      );
+
+      if (response.statusCode == 201) {
+        print('Entry created successfully');
+      } else {
+        print('Failed to create entry. Status code: ${response.statusCode}');
+      }
+    } catch (error) {
+      print('Error creating entry: $error');
     }
   }
 

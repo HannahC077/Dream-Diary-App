@@ -3,8 +3,10 @@ import 'package:dream_diary_app/Components/CustomTextFormField.dart';
 import 'package:dream_diary_app/Components/PasswordField.dart';
 import 'package:dream_diary_app/Components/Primary%20Button.dart';
 import 'package:dream_diary_app/main.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:dream_diary_app/Account/registrationGoogle.dart';
 
 class Registration extends StatefulWidget {
   static const String routeName = "registration";
@@ -16,6 +18,7 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
+  final RegistrationGoogle _registrationGoogle = RegistrationGoogle();
   bool obscureText = true;
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -27,6 +30,14 @@ class _RegistrationState extends State<Registration> {
     passwordController.dispose();
     usernameController.dispose();
     super.dispose();
+  }
+
+  Future<void> registerWithGoogle() async {
+    User? user = await _registrationGoogle.signInWithGoogle();
+
+    if (user != null) {
+      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+    } else {}
   }
 
   @override
@@ -81,7 +92,8 @@ class _RegistrationState extends State<Registration> {
             FadeIn(
               1,
               Padding(
-                padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
+                padding:
+                    const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -141,7 +153,8 @@ class _RegistrationState extends State<Registration> {
             FadeIn(
               1,
               Padding(
-                padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
+                padding:
+                    const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -200,7 +213,8 @@ class _RegistrationState extends State<Registration> {
             FadeIn(
               1,
               Padding(
-                padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
+                padding:
+                    const EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0),
                 child: Column(
                   children: <Widget>[
                     Container(

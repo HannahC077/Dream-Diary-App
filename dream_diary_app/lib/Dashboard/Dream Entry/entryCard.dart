@@ -275,7 +275,11 @@ class EntryCard extends StatelessWidget {
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 500),
         pageBuilder: (context, animation, secondaryAnimation) {
-          return FadeTransition(opacity: animation, child: const EditEntry());
+          return FadeTransition(
+              opacity: animation,
+              child: const EditEntry(
+                entry: null,
+              ));
         },
       ),
     );

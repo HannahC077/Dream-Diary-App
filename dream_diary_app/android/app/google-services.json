@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "370622895920",
+    "project_id": "dreamdream-e22db",
+    "storage_bucket": "dreamdream-e22db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370622895920:android:306641489ae1201bdb9af5",
+        "android_client_info": {
+          "package_name": "com.example.dream_diary_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370622895920-9femrp8av4lfe49k9vjh19u2vq9v2vjk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoZbhw7Jx42U6Tu6vV0Gc56eQwy3NHA44"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370622895920-9femrp8av4lfe49k9vjh19u2vq9v2vjk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,13 +4,17 @@ import 'package:dream_diary_app/Components/LongTextField.dart';
 import 'package:dream_diary_app/Components/NavigationBar.dart';
 import 'package:dream_diary_app/Components/Primary%20Button.dart';
 import 'package:dream_diary_app/Components/TimePicker.dart';
+import 'package:dream_diary_app/Models/entry.dart';
+import 'package:dream_diary_app/Providers/entry_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_diary_app/Animation/FadeAnimation.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class EditEntry extends StatefulWidget {
+  final Entry? entry;
   static const String routeName = "edit entry";
-  const EditEntry({super.key});
+  const EditEntry({Key? key, required this.entry}) : super(key: key);
 
   @override
   State<EditEntry> createState() => _EditEntryState();
@@ -232,8 +236,13 @@ class _EditEntryState extends State<EditEntry> {
     );
   }
 
+  void initState() {
+    super.initState();
+    titleController.text = widget.entry!.title;
+    contentController.text = widget.entry!.description;
+  }
+
   void saveEntry() {
-    //asdsdaadsaa
     final title = titleController.text.trim();
     final content = contentController.text.trim();
 
@@ -251,9 +260,17 @@ class _EditEntryState extends State<EditEntry> {
         ),
       );
     } else {
-      // Save entry logic here
+      Entry updatedEntry = Entry(
+        id: widget.entry!.id,
+        date: widget.entry!.date,
+        time: widget.entry!.time,
+        title: title,
+        description: content,
+      );
 
-      // confirm saved entry dialog box
+      Provider.of<EntryProvider>(context, listen: false)
+          .notifyUpdatedEntry(updatedEntry);
+
       _saveEntryConfirmation(context);
     }
   }
